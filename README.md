@@ -1,4 +1,4 @@
-#STEPIK_course_WEB-TECHNOLOGIES
+# STEPIK_course_WEB-TECHNOLOGIES
 study project from mail.ru
 # First project -
 	- create git repository on github.com
@@ -7,7 +7,7 @@ study project from mail.ru
 	- create shell script for deploying
 I did it on the first try (with fast bug fixing)
 
-#Second project - 
+# Second project - 
 	- create simple wsgi app (print query strings)
 	- launch gunicorn
 	- tests
