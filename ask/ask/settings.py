@@ -79,9 +79,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'stepik_course_mail_ru',
         'USER': 'grm',
-        'PASSWORD': 'box01)!',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'PASSWORD': 'xob01)!',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
