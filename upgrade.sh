@@ -10,3 +10,4 @@ sudo apt-get install -y python3.5-dev
 sudo pip3 install --upgrade pip
 sudo pip3 install --upgrade django==2.1
 sudo pip3 install --upgrade gunicorn
+sudo pip3 install mysqlclient
