@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'stepik_course_mail_ru',
-        'USER': 'grm',
-        'PASSWORD': 'xob01)!',
+        'USER': 'box',
+        'PASSWORD': 'box',
         'HOST': '',
         'PORT': '',
     }
