@@ -25,13 +25,8 @@ def popular(request):
         'page': page,
     })
 
-<<<<<<< HEAD
 def question(request, pk):
     qst = get_object_or_404(Question, id=pk)
-=======
-def question(request, id):
-    qst = get_object_or_404(Question, id=id)
->>>>>>> 06900e6873d8d7b256c0c470d5acfc55446d130c
     return render(request, 'question.html', {
         'question': qst,
         'answers': qst.answer_set.all()

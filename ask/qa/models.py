@@ -29,11 +29,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     text = models.TextField(max_length=255, default='')
-<<<<<<< HEAD
     added_at = models.DateTimeField(auto_now_add=True)
-=======
-    added_at = models.DateField(null=True)
->>>>>>> 06900e6873d8d7b256c0c470d5acfc55446d130c
 
     question = models.ForeignKey(Question, null=True, on_delete=models.CASCADE)
     author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
