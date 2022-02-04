@@ -16,7 +16,7 @@ sudo /etc/init.d/nginx restart
 cd ask/
 sudo python3 manage.py makemigrations
 sudo python3 manage.py migrate
-sudo python3 manage.py seed qa --number=50
+#sudo python3 manage.py seed qa --number=50
 cd ..
 
 # gunicorn

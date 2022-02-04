@@ -11,5 +11,5 @@ sudo pip3 install --upgrade pip
 sudo pip3 install --upgrade django==2.1
 sudo pip3 install --upgrade gunicorn
 #sudo pip3 install mysqlclient
-sudo pip3 install django-seed
-sudo pip3 install psycopg2-binary
+#sudo pip3 install django-seed
+#sudo pip3 install psycopg2-binary

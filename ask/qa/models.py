@@ -11,12 +11,12 @@ class QuestionManager(models.Manager):
 
 
 class Question(models.Model):
-    title = models.CharField(max_length=255)
-    text = models.TextField()
+    title = models.CharField(max_length=255, default='')
+    text = models.TextField(max_length=255, default='')
     added_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, related_name='question_like_user')
 
     def __unicode__(self):
@@ -28,11 +28,11 @@ class Question(models.Model):
     objects = QuestionManager()
 
 class Answer(models.Model):
-    text = models.TextField()
-    added_at = models.DateTimeField(auto_now_add=True, null=True)
+    text = models.TextField(max_length=255, default='')
+    added_at = models.DateField(null=True)
 
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, null=True, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.text
