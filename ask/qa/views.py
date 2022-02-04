@@ -8,9 +8,9 @@ def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
 def main(request, *args, **kwargs):
-    if request.GET.get('page') == None:
-        return test(request)
-    last = Question.objects.order_by('-id')
+#    if request.GET.get('page') == None:
+#        request.GET['page'] = '1'
+    last = Question.objects.order_by('-added_at')
     page = paginate(request,last)
     return render(request, 'main.html', {
         'questions': page.object_list,
