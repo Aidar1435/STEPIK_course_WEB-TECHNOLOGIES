@@ -1,9 +1,7 @@
 {% extends 'html.html' %}
 {% block title %}{{ block.super }}Main{% endblock %}
 {% block content %}
-    <ul>
-        {% for q in questions %}
-           <li><a href="{{ q.get_url }}">{{ q.title }}</a></li>
-        {% endfor %}
-    </ul>
+    {% for q in questions %}
+       <a href="{{ q.get_url }}">{{ q.title }}</a>
+    {% endfor %}
 {% endblock %}

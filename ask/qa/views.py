@@ -8,7 +8,9 @@ def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
 def main(request, *args, **kwargs):
-    last = Question.objects.new()
+    if request.GET.get('page') == None:
+        return test(request)
+    last = Question.objects.order_by('-id')
     page = paginate(request,last)
     return render(request, 'main.html', {
         'questions': page.object_list,
@@ -23,8 +25,9 @@ def popular(request):
         'page': page,
     })
 
-def question(request, id):
-    qst = get_object_or_404(Question, pk=id)
+def question(request, pk):
+    qst = get_object_or_404(Question, id=pk)
     return render(request, 'question.html', {
         'question': qst,
+        'answers': qst.answer_set.all()
     })
