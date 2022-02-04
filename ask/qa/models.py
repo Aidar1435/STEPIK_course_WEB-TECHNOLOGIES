@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class QuestionManager(models.Manager):
     def new(self):
@@ -20,6 +21,9 @@ class Question(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_url(self):
+        return reverse('question', args=[self.pk, ])
 
     objects = QuestionManager()
 

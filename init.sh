@@ -16,11 +16,11 @@ sudo /etc/init.d/nginx restart
 cd ask/
 sudo python3 manage.py makemigrations
 sudo python3 manage.py migrate
+sudo python3 manage.py seed qa --number=50
 cd ..
 
 # gunicorn
-sudo gunicorn -b "0.0.0.0:8080" hello:print_query &
+#sudo gunicorn -b "0.0.0.0:8080" hello:print_query &
 cd ask/
 sudo gunicorn -b "0.0.0.0:8000" ask.wsgi:application &
 cd ..
-

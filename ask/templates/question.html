@@ -1,0 +1,15 @@
+{% extends 'html.html' %}
+{% block title %}
+    {{ block.super }} {{ question.id }}
+{% endblock %}
+{% block content %}
+    <h1>{{ question.title }}</h1>
+    <p>{{ question.text }}</p>
+    <ul>
+    {% for answer in answers %}
+        <li>
+        {{ answer.text }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

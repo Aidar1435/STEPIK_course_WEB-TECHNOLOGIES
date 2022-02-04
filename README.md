@@ -26,7 +26,7 @@ And again on the first try, but problems with old versions of py, django, gunico
 
 # Fourth project - 
 	- deploy mysql (FAILED, i used default sqlite3)
-        - Create models
-        - Create custom manager
-        - make db migrations
+	- Create models
+	- Create custom manager
+	- make db migrations
 For the second try, i failed with deploy mysql. Django had many syntach SQL errors on db migration. But my localy server execute it without any errors. Version conflict? Old mysql on test server? I don't no. Finish test i could only with sqlite3 server. 

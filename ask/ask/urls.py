@@ -19,11 +19,11 @@ from qa import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.test),
+    path('', views.main),
     path('login/', views.test),
     path('signup/', views.test),
-    path('question/<int:id>/', views.test),
+    path('question/<int:id>/', views.question, name='question'),
     path('ask/', views.test),
-    path('popular/', views.test),
+    path('popular/', views.popular),
     path('new/', views.test),
 ]
