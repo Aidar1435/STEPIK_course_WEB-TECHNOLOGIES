@@ -1,26 +1,28 @@
-#!/bin/bash
+sudo /etc/init.d/mysql start
+mysql -uroot -e "create database Aidar;"
+~/web/ask/manage.py makemigrations
+~/web/ask/manage.py migrate
 
+DATABASES = {
 
-# nginx
-sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/default
-sudo /etc/init.d/nginx restart
+    'default': {
 
-# mysql # disable, using default sqlite3
-#sudo /etc/init.d/mysql start
-#sudo mysql -u root -e "CREATE DATABASE stepik_course_mail_ru;"
-#sudo mysql -u root -e "CREATE USER box@'%' IDENTIFIED BY 'box';"
-#sudo mysql -u root -e "GRANT ALL PRIVILEGES ON stepic_course_mail_ru.* TO box@'%' WITH GRANT OPTION;"
-#sudo mysql -u root -e "FLUSH PRIVILEGES;"
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Aidar',
+        'USER': 'box',
+    }
+}
 
-# django db
-cd ask/
-sudo python3 manage.py makemigrations
-sudo python3 manage.py migrate
-#sudo python3 manage.py seed qa --number=50
-cd ..
+from django.contrib.auth.models import User
 
-# gunicorn
-#sudo gunicorn -b "0.0.0.0:8080" hello:print_query &
-cd ask/
-sudo gunicorn -b "0.0.0.0:8000" ask.wsgi:application &
-cd ..
+class QuestionManager(models.Manager):
+  def new(self):
+    return self.order_by('-added_at')
+  def popular(self):
+    return self.order_by('-rating')
+    
+    added_at = models.DateTimeField(auto_now_add=True)
+    
+    rating = models.IntegerField(default=0)
+    
+    likes = models.ManyToManyField(User, related_name='question_like_user')
